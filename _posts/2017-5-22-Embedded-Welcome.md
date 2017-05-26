@@ -41,7 +41,7 @@ Entre sus principales caracteristicas estos sistemas tienen:
  * Perifericos disponibles.
  * Puertos de E/S.
 
-Algunos ejemplos de sistemas empotrados son:
+Resulta complicado acotar estrictamente donde termAlgunos ejemplos de sistemas empotrados son:
 
 ![Raspberry Pi3 Board](https://ingenierong.github.io/images/board_rpi3.jpg)
 
