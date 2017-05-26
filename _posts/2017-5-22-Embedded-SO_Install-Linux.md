@@ -5,15 +5,15 @@ title: Puesta en marcha de nuestra Raspberry 3
 
 ## Introducción
 
-Una vez que tengamos nuestra _Raspberry Pi 3_, es hora de echarla a andar. Existe una distribución linux, especifica para nuestra Raspberry, [**Raspbian**][raspbian_web].  
+Una vez que tengamos nuestra _Raspberry Pi 3_, es hora de echarla a andar. Existe una distribución linux, especifica para nuestra Raspberry, [**Raspbian**]:[raspbian_web].  
 
 Raspbian es el sistema operativo oficial de la Fundación Raspberry Pi. Raspbian incluye por defecto, aplicaciones para educacion, programacion y uso general. Entre ellas, podemos encontrar Python, Scratch, Sonic Pi, Java, Mathermatica y algunos otros.
 
 La imagen de Raspbian esta contenida en un fichero ZIP de aproximadamente 4 GB, lo que significa que necesitaremos un tarjeta microSD de mas de 4 GB para poder grabarlo.
 
-Para descargar la imagen o bien accedemos a la web de [Raspbian][raspbian_web] y descargamos la imagen o bien la descargamos empleando el comando `wget https://downloads.raspberrypi.org/raspbian_latest`.
+Para descargar la imagen o bien accedemos a la web de [Raspbian][raspbian_web] y descargamos la imagen o bien la descargamos empleando el comando ```wget https://downloads.raspberrypi.org/raspbian_latest```.
 
-Esta imagen que hemos descargado esta comprimida con ZIP, por lo que tenemos que descomprimirla para poder grabarla en nuestra SD `unzip raspbian_latest.zip`.
+Esta imagen que hemos descargado esta comprimida con ZIP, por lo que tenemos que descomprimirla para poder grabarla en nuestra SD ```unzip raspbian_latest.zip```.
 
 
 ## Introducción
@@ -37,4 +37,4 @@ Resulta complicado acotar estrictamente donde termAlgunos ejemplos de sistemas e
 
 ## Instalación del sistema operativo.
 
-[raspbian_web] [https://www.raspberrypi.org/downloads/raspbian/]
+[raspbian_web]:[https://www.raspberrypi.org/downloads/raspbian/]
