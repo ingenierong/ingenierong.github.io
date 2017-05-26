@@ -49,6 +49,11 @@ Vamos a echarles un vistazo. Vamos a montar nuestra partición, de root. Para el
 ## Grabación de la tarjeta microSD
 Insertamos nuestra tarjeta microSD en nuestro Lector/Grabador de Tarjeta, y buscamos en nuestro sistema el dispositivo que le ha sido asignado.
 
+```shell
+~]$ su -
+~]$ dd if=2017-03-02-raspbian-jessie.img | pv -tpreb | dd of=/dev/sdc bs=128M
+~]$ sync
+```
 
 
 [raspbian_web]: https://www.raspberrypi.org/downloads/raspbian/
