@@ -3,6 +3,8 @@ layout: post
 title: Puesta en marcha de nuestra Raspberry 3
 ---
 
+## Introducción
+
 Una vez que tengamos nuestra _Raspberry Pi 3_, es hora de echarla a andar. Existe una distribución linux, especifica para nuestra Raspberry, [**Raspbian**][raspbian_web].  
 
 Raspbian es el sistema operativo oficial de la Fundación Raspberry Pi. Raspbian incluye por defecto, aplicaciones para educacion, programacion y uso general. Entre ellas, podemos encontrar Python, Scratch, Sonic Pi, Java, Mathermatica y algunos otros.
@@ -13,20 +15,6 @@ Para descargar la imagen o bien accedemos a la web de [Raspbian][raspbian_web] y
 
 Esta imagen que hemos descargado esta comprimida con ZIP, por lo que tenemos que descomprimirla para poder grabarla en nuestra SD `unzip raspbian_latest.zip`.
 
-
-
-
-## Prácticas
-* Conexión y configuración de un sistema empotrado Raspberry Pi 3.
-* Instalación y oncfiguración de servicios básicos: red, FTP, servidor web, base datos, etc.
-* Conexión de actuadores y sensores mediante los puertos digitales.
-* Uso de buses de comunicación I2C, SPI y UART.
-
->“The most important factor for me is that the device must be supported in upstream Linux (preferably stable, but mainline will do) and U-Boot”
->Juan M. Gómez
-
-> “Dive into the hardware from a linux and you will have the key to to rule them all”
-> Juan P. Cobos
 
 ## Introducción
 Un **sistema embebido** es una combinación de hardware y software diseñado para un tipo de aplicación especifica.  
