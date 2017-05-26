@@ -1,20 +1,22 @@
 ---
 layout: post
-title: Puesta en marcha de nuestra Raspberry 3
+title: Sistemas empotrados I
 ---
 
-Una vez que tengamos nuestra _Raspberry Pi 3_, es hora de echarla a andar. Existe una distribución linux, especifica para nuestra Raspberry, [**Raspbian**][raspbian_web].  
 
-Raspbian es el sistema operativo oficial de la Fundación Raspberry Pi. Raspbian incluye por defecto, aplicaciones para educacion, programacion y uso general. Entre ellas, podemos encontrar Python, Scratch, Sonic Pi, Java, Mathermatica y algunos otros.
+A lo largo de estos post, vamos a adquirir una visión general de como funcionan los _sistemas embebidos_. Entre los principales objetivos de este mini-curso, pretendemos alcanzar los siguientes objetivos:  
+* Conocer las caracteristicas básuicas de los sistemas embebidos para instrumentación.
+* Conocer las nuevas tendencias de desarrollo en el dominio de los _system-on-chip_ (SOC).
+* Manejar  herramientas de desarrollo para construir sistemas embebidos.
+* Configurar un sistema embebido basado en micropocesador.
+* Conocer y manipulas los entornos de programación C y Python.
+* Usar las capacidades de comunicación más habituales de un sistema embebido.
+* Crear conexiones con elementos electrónicos como leds, relés, sensores, etc.
+* Controlar los puertos de entrada y salida digitales de un sistema embebido.
+* Controlar los puertos de entrada y salida digitales de un sistema embebido.
+* Diseñar y adaptar un sistema embebido para instrumetación científica.  
 
-La imagen de Raspbian esta contenida en un fichero ZIP de aproximadamente 4 GB, lo que significa que necesitaremos un tarjeta microSD de mas de 4 GB para poder grabarlo.
-
-Para descargar la imagen o bien accedemos a la web de [Raspbian][raspbian_web] y descargamos la imagen o bien la descargamos empleando el comando `wget https://downloads.raspberrypi.org/raspbian_latest`.
-
-Esta imagen que hemos descargado esta comprimida con ZIP, por lo que tenemos que descomprimirla para poder grabarla en nuestra SD `unzip raspbian_latest.zip`.
-
-
-
+Para alcanzar estos objetivos, vamos a planificar un conjunto de prácticas en las que mediante ejemplos aprenderemos a manejar los sitemas embebidos.
 
 ## Prácticas
 * Conexión y configuración de un sistema empotrado Raspberry Pi 3.
@@ -39,7 +41,7 @@ Entre sus principales caracteristicas estos sistemas tienen:
  * Perifericos disponibles.
  * Puertos de E/S.
 
-Resulta complicado acotar estrictamente donde termAlgunos ejemplos de sistemas empotrados son:
+Resulta complicado acotar estrictamente donde terminan los microprocesadores y donde comienzan los sistema empotrados. Algunos ejemplos de sistemas empotrados son:
 
 ![Raspberry Pi3 Board](https://ingenierong.github.io/images/board_rpi3.jpg)
 
@@ -49,4 +51,6 @@ Resulta complicado acotar estrictamente donde termAlgunos ejemplos de sistemas e
 
 ## Instalación del sistema operativo.
 
-[raspbian_web] [https://www.raspberrypi.org/downloads/raspbian/]
+[raspbian_web]: https://www.raspberrypi.org/downloads/raspbian/
+
+

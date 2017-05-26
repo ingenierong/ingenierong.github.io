@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Puesta en marcha de nuestra Raspberry 3
+title: Instalación Sistema Operativo Raspbian (Linux)
 ---
 
 ## Introducción
@@ -37,4 +37,8 @@ Resulta complicado acotar estrictamente donde termAlgunos ejemplos de sistemas e
 
 ## Instalación del sistema operativo.
 
-[raspbian_web]:[https://www.raspberrypi.org/downloads/raspbian/]
+[raspbian_web]: https://www.raspberrypi.org/downloads/raspbian/
+
+
+
+
