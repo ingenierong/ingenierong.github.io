@@ -3,6 +3,7 @@ layout: post
 title: Sistemas empotrados I
 ---
 
+# Introducción
 
 A lo largo de estos post, vamos a adquirir una visión general de como funcionan los _sistemas embebidos_. Entre los principales objetivos de este mini-curso, pretendemos alcanzar los siguientes objetivos:  
 * Conocer las caracteristicas básuicas de los sistemas embebidos para instrumentación.
