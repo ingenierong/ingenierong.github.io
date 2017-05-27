@@ -3,7 +3,7 @@ layout: post
 title: Sistemas Empotrados II
 ---
 
-#Instalación Sistema Operativo Raspbian (Linux)
+##Instalación Sistema Operativo Raspbian (Linux)
 
 Una vez que tengamos nuestra _Raspberry Pi 3_, es hora de echarla a andar. Existe una distribución linux, especifica para nuestra Raspberry, [**Raspbian**][raspbian_web].  
 
@@ -36,7 +36,7 @@ Observamos que nuestra imagen tiene 2 particiones:
 2. 2017-03-02-raspbian-jessie.img2 Esta partición es la de root.
 
 La partion de arranque debe ser obligatoriamente de tipo FAT.
-En cuanto a la partición de rot, almacena el sistema de archivos de nuestra distribución linux. En ella se encuentran las aplicaciones de usuario, las librerias y los drivers para controlar los dispositivos de nuestro sistema.
+En cuanto a la partición de root, almacena el sistema de archivos de nuestra distribución linux. En ella se encuentran las aplicaciones de usuario, las librerias y los drivers para controlar los dispositivos de nuestro sistema.
 
 Vamos a echarles un vistazo. Vamos a montar nuestra partición, de root. Para ello calculamos el offset donde se encuentra en el fichero `137216*512 Bytes/sector=70254592`.
 
