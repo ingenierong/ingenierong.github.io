@@ -91,7 +91,7 @@ Insertamos nuestra tarjeta microSD en nuestro Lector/Grabador de Tarjeta, y busc
 ~]$ sync
 ```
 
-Ahora insertamos la microSD en la Raspbery pi 3 y la encendemos. A cabo de unos segundos, estara lista. Si hacemos ssh a nuestra pi `~]$ ѕѕh pi@[rasberrypi_ip_address]` tendremos acceso a la misma.
+Ahora insertamos la microSD en la Raspbery pi 3 y la encendemos. A cabo de unos segundos, estara lista. Si hacemos ssh a nuestra pi ```~]$ ѕѕh pi@[rasberrypi_ip_address]``` tendremos acceso a la misma.
 
 
 
