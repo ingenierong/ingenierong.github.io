@@ -32,11 +32,11 @@ Para alcanzar estos objetivos, vamos a planificar un conjunto de prácticas en l
 > Juan P. Cobos
 
 ## Introducción
-Un **sistema embebido** es una combinación de hardware y software diseñado para un tipo de aplicación especifica.  
-Entre sus principales caracteristicas estos sistemas tienen: 
+Un **sistema embebido** es una combinación de hardware y software diseñado para un tipo de aplicación especifica.
+Entre sus principales caracteristicas estos sistemas tienen:
 * Diseñados a medida.
-* Costes muy ajustados. 
-* Recursos limitados
+* Costes muy ajustados.
+* Recursos limitados.
  * Cantidad de memoria.
  * Potencia de cálculo.
  * Perifericos disponibles.
@@ -44,13 +44,16 @@ Entre sus principales caracteristicas estos sistemas tienen:
 
 Resulta complicado acotar estrictamente donde terminan los microprocesadores y donde comienzan los sistema empotrados. Algunos ejemplos de sistemas empotrados son:
 
+Los sistemas Raspberry Pi 3 estan basados en el SOC BCM2837.
+
 ![Raspberry Pi3 Board](https://ingenierong.github.io/images/board_rpi3.jpg)
 
+Los sistemas arduino estan basados en el microcontrolador ATMEGA328.
 
 ![Arduino Board](https://ingenierong.github.io/images/board_arduino.jpg)
 
 
-## Instalación del sistema operativo.
+Next : Instalación del sistema operativo.
 
 [raspbian_web]: https://www.raspberrypi.org/downloads/raspbian/
 
