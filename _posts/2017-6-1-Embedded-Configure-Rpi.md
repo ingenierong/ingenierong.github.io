@@ -28,7 +28,9 @@ Entre los menus disponibles tenemos:
 * About...
 
 
+Los siguientes post emplearemos el submenu Intefacing Options para activar las interfaces y conectarnos a los distintos perifericos.
 
+##Configurar VNC
 
 [raspbian_web]: https://www.raspberrypi.org/downloads/raspbian/
 
