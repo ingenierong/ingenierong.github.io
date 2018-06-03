@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Juan Manuel Gomez Lopez"
+foto: images/logo_dart_blue.jpg
 ---
 
 Hola, mi nombre es Juanma y puedes encontrarme en IAA.
