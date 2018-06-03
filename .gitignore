@@ -1,2 +1,7 @@
 
+#Emacs files
+*~
+\#*\#
+
+#Jekyll build Folder
 _site 
