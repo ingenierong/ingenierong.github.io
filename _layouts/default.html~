@@ -20,8 +20,8 @@
     <header>
       <div class="inner">
         <h1> {{ site.name }} </h1>
-        <h2>Guia Rapida de Introduccion a los Sistema Empotrados</h2>
-        <a href="https://github.com/ingenierong/CursoEmpotrados_v1" class="button"><small>View project on</small> GitHub</a>
+        <h2>Open Source version of the GitHub Pages theme, now for Jekyll</h2>
+        <a href="https://github.com/pietromenna/jekyll-architect-theme" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
 

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> Sistemas empotrados I </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1> Ingenierong </h1>
+        <h2>Guia Rapida de Introduccion a los Sistema Empotrados</h2>
+        <a href="https://github.com/ingenierong/CursoEmpotrados_v1" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          <h2>Sistemas empotrados I</h2>
+<p class="meta">01 Jun 2018</p>
+
+<h2 id="introducción">Introducción</h2>
+<p>Un <strong>sistema embebido</strong> es una combinación de hardware y software diseñado para un tipo de <em>aplicación especifica</em>, cuyo software por lo general enfrenta a una tarea de <em>tiempo real</em>. Al tratarse de sistemas de proposito especifico, en la mayoria de las ocasiones, todos los componentes se encuentran incluidos en la placa base y no suelen permitir ampliaciones de hardware.</p>
+
+<p><img src="images/Embedded-System-and-Its-Real-Time-Applications-Image-3.jpg" alt="Image Ejemplos de sistemas empotrados, lavadoras, microondas, controles de acceso, televisiones" /></p>
+
+<p>Por lo general, un sistema embebido incluye un pequeño procesador con una memoria acorde al mismo. La comunicacion es un aspecto fundamental de los mismos, suelen incluir puertos de comunicaciones que soportan los protocolos mas comunes, 1Wire, I2C, SPI, CAN, UART. Al igual, que las comunicaciones se suelen incluir modulos de control, generalmente PWM y Timers para manejar actuadores (motores, reles, leds, etc).</p>
+
+<p>Puesto que se suelen fabricar miles o cientos de miles el costo es un factor de gran importarcia.</p>
+
+<p>Hasta no hace mucho, no era habitual, que los fabricantes dieran un gran soporte. El empleo de arquitecturas exoticas, alejaba a estos sistemas de los metodos estandars de desarrollo. De echo, no es extraño que el software de los sistemas empotrados sea programado en Ensamblador. Sin embargo, en la actualidad los fabricantes de procesadores tratan de aproximarse lo maximo posible al estandard, creando forks de GGC o LLVM y para proporcionar una toolchain decente.</p>
+
+<p>En resumen, podemos decir que entre las principales caracteristicas de los sistema empotrados podemos destacar:</p>
+<ul>
+  <li>Diseñados a medida.</li>
+  <li>Costes muy ajustados.</li>
+  <li>Recursos limitados.</li>
+  <li>Cantidad de memoria.</li>
+  <li>Potencia de cálculo.</li>
+  <li>Perifericos disponibles.</li>
+  <li>Puertos de E/S.</li>
+</ul>
+
+<h2 id="tendencias-en-los-sistemas-empotrados">Tendencias en los sistemas empotrados</h2>
+<p>El incremento en la capacidad de integracion en la fabricacion de Circuitos Integrados, origino un movimiento de los fabricantes hacia la inclusion de mas componentes dentro del mismo circuitos integrado. De esta forma se consegue reducir costes y construir sistemas mas reducidos.</p>
+
+<p>Este movimiento se ha llevado al extremo, ahora practicamente todo el sistema esta integrado dentro del mismo chip. Dentro del mismo chip se incluye el microprocesador, la memoria, los controladores de las interfaces, timers y pwms conformando un <em>system on chip</em> (SoC).</p>
+
+<p>Dependiendo de la tirada es posible que el costo de fabricar un SoC no sea abarcable y entonces se suele recurrir a System in Package (SPI). En la que varias chips comparten encapsulado.</p>
+
+<p><img src="images/500px-ARMSoCBlockDiagram.svg.png" alt="Image ARM System-on-chip Block Diagram" /></p>
+
+<p>La mayoría de SoC son desarrollados a partir de módulos de hardware básicos previamente probados para la construcción de diversos elementos más complejos junto con los controladores de software que proporcionan las instrucciones para su manejo. Estos elementos constitutivos suelen estar interconectados mediante el empleo de buses.</p>
+
+<h2 id="raspberry-pi">Raspberry Pi</h2>
+
+<p><img src="https://ingenierong.github.io/images/board_rpi3.jpg" alt="Raspberry Pi3 Board" /></p>
+
+<p>Raspberry Pi es un pequeño computador del tamañano de una tarjeta de crédito, el cual podemos conectar fácilmente a una televisión vía HDMI. Además, podemos utilizarla, con un teclado y un ratón. Tiene conexión a Internet y unos pines GPIO (General Purpose Input/Output), para que podamos interactuar con nuestra placa con sensores, botones, o lo que queramos.</p>
+
+<p><img src="rpi3_blk_diagram.jpg" alt="Raspberry pi 3 BlockDiagram Curso pag 22" /></p>
+
+<p>Los sistemas Raspberry Pi 3 estan basados en el SOC BCM2837. Este SoC del fabricante Broadcom incluye una CPU con juego de instrucciones de 64bit de la familia ARMv8. Se trata de un procesador es Quad Core, o sea, de cuatro núcleos y de tipo Cortex-A53 con una velocidad de 1.2GHz, dispone de 32kB de memoria caché de nivel 1 y 512kB de caché de nivel 2. Por otro lado, el SoC incluye una GPU con dual core VideoCore IV a 400MHz y que soporta OpenGL ES 2.0.</p>
+
+<p>El ARM Cortex-A53 es un procesador de altas prestaciones y alta eficiciencia energetica. Permite dos modos de ejecucion, AArch32 y AArch64, con lo que puede ejecutar tanto aplicaciones de 32 como de 64 bits.
+<a href="https://developer.arm.com/products/processors/cortex-a/cortex-a53">Ampliar Cortex-A53</a></p>
+
+<p>El sistema Raspberry Pi 3, incluye una interfaz microSD desde la cual el sistema es capaz de arrancar.</p>
+<h3 id="arrancar-nuestra-raspberry-pi-3">Arrancar nuestra Raspberry Pi 3</h3>
+
+<h1 id="objetivos">Objetivos</h1>
+
+<ul>
+  <li>Manejar  herramientas de desarrollo para construir sistemas embebidos.</li>
+  <li>Configurar un sistema embebido basado en micropocesador.</li>
+</ul>
+
+<blockquote>
+  <p>“The most important factor for me is that the device must be supported in upstream Linux (preferably stable, but mainline will do) and U-Boot”
+Juan M. Gómez</p>
+</blockquote>
+
+<blockquote>
+  <p>“Dive into the hardware from a linux and you will have the key to to rule them all”
+Juan P. Cobos</p>
+</blockquote>
+
+<p>Next : Instalación del sistema operativo.</p>
+
+
+
+
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.zip" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.tar.gz" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
+
+          <p class="repo-owner"><a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>

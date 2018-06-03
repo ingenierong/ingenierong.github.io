@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> Sistemas Empotrados II </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1> Ingenierong </h1>
+        <h2>Guia Rapida de Introduccion a los Sistema Empotrados</h2>
+        <a href="https://github.com/ingenierong/CursoEmpotrados_v1" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          <h2>Sistemas Empotrados II</h2>
+<p class="meta">22 May 2017</p>
+
+<p>##Instalación Sistema Operativo Raspbian (Linux)</p>
+
+<p>Una vez que tengamos nuestra <em>Raspberry Pi 3</em>, es hora de echarla a andar. Existe una distribución linux, especifica para nuestra Raspberry, <a href="https://www.raspberrypi.org/downloads/raspbian/"><strong>Raspbian</strong></a>.</p>
+
+<p>Raspbian es el sistema operativo oficial de la Fundación Raspberry Pi. Raspbian incluye por defecto, aplicaciones para educacion, programacion y uso general. Entre ellas, podemos encontrar Python, Scratch, Sonic Pi, Java, Mathematica y algunos otros.</p>
+
+<p>La imagen de Raspbian esta contenida en un fichero ZIP de aproximadamente 4 GB, lo que significa que necesitaremos un tarjeta microSD de mas de 4 GB para poder grabarlo.</p>
+
+<p>Para descargar la imagen o bien accedemos a la web de <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> y descargamos la imagen o bien la descargamos empleando el comando <code class="highlighter-rouge">wget https://downloads.raspberrypi.org/raspbian_latest</code>.</p>
+
+<p>Esta imagen que hemos descargado esta comprimida con ZIP, por lo que tenemos que descomprimirla para poder grabarla en nuestra SD <code class="highlighter-rouge">unzip raspbian_latest.zip</code>.</p>
+
+<p>Ahora, ya tenemos acceso a los datos de la imagen. Una imagen es un fichero con extension <code class="highlighter-rouge">.img</code> que almacena los datos binarios de un fichero de bloques. Ahora que sabemos que es, vamos a estudiar que contiene nuestra imagen de <em>Raspbian</em>. En nuesta shell preferida, vamos a listar la <a href="https://es.wikipedia.org/wiki/Tabla_de_particiones">tabla de particiones</a>:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]<span class="nv">$ </span>fdisk <span class="nt">-l</span> <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/2017-03-02-raspbian-jessie.img
+
+Disco /mnt/Datos/Workspace/rpi/Iso/2017-03-02-raspbian-jessie.img: 4,1 GiB, 4393533440 bytes, 8581120 sectores
+Unidades: sectores de 1 <span class="k">*</span> 512 <span class="o">=</span> 512 bytes
+<span class="k">*</span>Tamaño de sector<span class="k">*</span> <span class="o">(</span>lógico/físico<span class="o">)</span>: 512 bytes / 512 bytes
+Tamaño de E/S <span class="o">(</span>mínimo/óptimo<span class="o">)</span>: 512 bytes / 512 bytes
+Tipo de etiqueta de disco: dos
+Identificador del disco: 0x432b3940
+
+Disposit.                                                    Inicio Comienzo   Final Sectores Tamaño Id Tipo
+/mnt/Datos/Workspace/rpi/Iso/2017-03-02-raspbian-jessie.img1            8192  137215   129024    63M  c W95 FA
+/mnt/Datos/Workspace/rpi/Iso/2017-03-02-raspbian-jessie.img2          137216 8581119  8443904     4G 83 Linux
+</code></pre></div></div>
+<p>Observamos que nuestra imagen tiene 2 particiones:</p>
+<ol>
+  <li>2017-03-02-raspbian-jessie.img1 Esta partición es la de arranque</li>
+  <li>2017-03-02-raspbian-jessie.img2 Esta partición es la de root.</li>
+</ol>
+
+<p>La partion de arranque debe ser obligatoriamente de tipo FAT.
+En cuanto a la partición de root, almacena el sistema de archivos de nuestra distribución linux. En ella se encuentran las aplicaciones de usuario, las librerias y los drivers para controlar los dispositivos de nuestro sistema.</p>
+
+<p>Vamos a echarles un vistazo. Vamos a montar nuestra partición, de root. Para ello calculamos el offset donde se encuentra en el fichero <code class="highlighter-rouge">137216*512 Bytes/sector=70254592</code>.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]<span class="nv">$ </span><span class="nb">sudo </span>mkdir jessie
+~]<span class="nv">$ </span><span class="nb">sudo </span>mount <span class="nt">-o</span> loop,offset<span class="o">=</span>70254592 2017-03-02-raspbian-jessie.img jessie
+~]<span class="nv">$ </span><span class="nb">sudo </span>mkdir <span class="nt">-p</span> jessie/boot
+~]<span class="nv">$ </span><span class="nb">sudo </span>mount <span class="nt">-o</span> loop,offset<span class="o">=</span>41943042017-03-02-raspbian-jessie.img jessie/boot
+</code></pre></div></div>
+<p>Ahora el sistema de archivos de nuestra imagen raspbian es accesible para nosotros y vamos a cambiar algunas configuración segun nos interesen.
+En primer lugar editaremos el fichero dhcpd.conf, podemos fijar la IP de nuestro sistema, de forma que al arrancar tome una IP estatica.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]<span class="nv">$ </span><span class="nb">sudo </span>nano jessie/etc/dhcpcd.conf
+interface eth0
+static <span class="nv">ip_address</span><span class="o">=</span>192.168.1.139/24
+static <span class="nv">routers</span><span class="o">=</span>192.168.1.1
+static <span class="nv">domain_name_servers</span><span class="o">=</span>8.8.8.8
+</code></pre></div></div>
+
+<p>A partir de 2016, las imágenes de Raspbian, el servicio ssh viene por defecto
+desactivado. Dadas las limitaciones de material disponible, para poder trabajar con
+nuestro sistema empotrado vamos a activar el servicio ssh. La documentación indica que debemos crear un fichero llamado ssh en la partición boot.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]<span class="nv">$ </span>touch jessie/boot/ssh
+</code></pre></div></div>
+
+<p>Finalmente, activaremos el uso de la consola UART para poder acceder directamente a nuestro sistema en caso de que no funcione el acceso a traves de la red.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]<span class="nv">$ </span><span class="nb">sudo </span>nano jessie/boot/config.txt
+<span class="c"># Add enable_uart=1 to the file config.txt</span>
+</code></pre></div></div>
+
+<p>UART transmit and receive pins are on GPIO 14 and GPIO 15 respectively, which are pins 8 and 10 on the GPIO header.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]<span class="nv">$ </span><span class="nb">sudo </span>umount jessie/boot
+~]<span class="nv">$ </span><span class="nb">sudo </span>umount jessie
+</code></pre></div></div>
+
+<h2 id="grabación-de-la-tarjeta-microsd">Grabación de la tarjeta microSD</h2>
+<p>Insertamos nuestra tarjeta microSD en nuestro Lector/Grabador de Tarjeta, y buscamos en nuestro sistema el dispositivo que le ha sido asignado.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~]<span class="nv">$ </span>su -
+~]<span class="nv">$ </span>mount 
+~]<span class="nv">$ </span>umount /dev/sdc<span class="k">*</span>
+~]<span class="nv">$ </span>dd <span class="k">if</span><span class="o">=</span>2017-03-02-raspbian-jessie.img | pv <span class="nt">-tpreb</span> | dd <span class="nv">of</span><span class="o">=</span>/dev/sdc <span class="nv">bs</span><span class="o">=</span>128M
+~]<span class="nv">$ </span>sync
+</code></pre></div></div>
+
+<p>Ahora insertamos la microSD en la Raspbery pi 3 y la encendemos. A cabo de unos segundos, estara lista. Si hacemos ssh a nuestra pi <code class="highlighter-rouge">~]$ ѕѕh pi@[rasberrypi_ip_address]</code> tendremos acceso a la misma.</p>
+
+
+
+
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.zip" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/pietromenna/jekyll-architect-theme/archive/master.tar.gz" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
+
+          <p class="repo-owner"><a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>

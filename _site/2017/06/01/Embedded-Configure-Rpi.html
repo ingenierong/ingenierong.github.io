@@ -13,7 +13,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title> Architect Theme by Jason Long </title>
+    <title> Sistemas Empotrados II </title>
   </head>
 
   <body>
@@ -29,26 +29,39 @@
       <div class="inner clearfix">
         <section id="main-content">
           
-          <div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    
-      <li><span>01 Jun 2018</span> &raquo; <a href="/embedded/development/sofware/2018/06/01/welcome-to-embedded.html">Bienvenido al mundo de los empotrados!!!</a></li>
-    
-      <li><span>01 Jun 2018</span> &raquo; <a href="/2018/06/01/Curso_Empotrados.html">Sistemas empotrados I</a></li>
-    
-      <li><span>01 Jun 2017</span> &raquo; <a href="/2017/06/01/Embedded-GPIO-Rpi.html">Sistemas Empotrados (Part IV)</a></li>
-    
-      <li><span>01 Jun 2017</span> &raquo; <a href="/2017/06/01/Embedded-Configure-Rpi.html">Sistemas Empotrados II</a></li>
-    
-      <li><span>30 May 2017</span> &raquo; <a href="/2017/05/30/Embedded-Headless-Rpi.html">Sistemas Empotrados II</a></li>
-    
-      <li><span>22 May 2017</span> &raquo; <a href="/2017/05/22/Embedded-SO_Install-Windows.html">Sistemas Empotrados II</a></li>
-    
-      <li><span>22 May 2017</span> &raquo; <a href="/2017/05/22/Embedded-SO_Install-Linux.html">Sistemas Empotrados II</a></li>
-    
-  </ul>
-</div>
+          <h2>Sistemas Empotrados II</h2>
+<p class="meta">01 Jun 2017</p>
+
+<p>##Configurar nuestra Raspberry Pi 3</p>
+
+<p><em>Raspi-config</em> es una herramienta de configuración grafica, basada en n-curses. Esta herramienta se puede ejecutar en una shell, por lo que podremos lanzarla desde nuestra consola SSH.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#sudo raspi-config</span>
+</code></pre></div></div>
+
+<p>Su aspecto es algo asi:</p>
+
+<p><img src="https://ingenierong.github.io/images/raspi-config_mainMenu.png" alt="Vista de Raspi-config" /></p>
+
+<p>Para movernos por los distintos items y submenus, empleamos las fechas arriba y abajo, y para entrar en un submenu pulsamos intro cuando estemos sobre él.</p>
+
+<p>Entre los menus disponibles tenemos:</p>
+<ul>
+  <li>Change User Password, cambia el password del usuario.</li>
+  <li>Hostname, cambia el nombre de Host del dispositivo.</li>
+  <li>Localisation Options, para configurar opcionesy adecuarlas a nuestro idioma. Languaje de los menus, idioma del teclado, etc.</li>
+  <li>Interface option, permite activar y configurar las distintas interfaces disponibles en el sistema.</li>
+  <li>Advanced options,</li>
+  <li>Update</li>
+  <li>About…</li>
+</ul>
+
+<p>Los siguientes post emplearemos el submenu Intefacing Options para activar las interfaces y conectarnos a los distintos perifericos.</p>
+
+<p>##Configurar VNC</p>
+
+
+
 
         </section>
 
