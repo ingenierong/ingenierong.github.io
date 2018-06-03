@@ -1,8 +1,9 @@
 # Setup
 name:         Ingenierong
 tagline:      Embedded System and Firmware development
-baseurl:      ""
+#baseurl:      "https://ingenierong.github.io"
 locale:       "es"
+#url:	      "https://ingenierong.github.io/"
 
 # Gems
 gems:
@@ -10,3 +11,8 @@ gems:
 
 #Others
 markdown: kramdown
+
+collections:
+ portfolio:
+  output: true
+  permalink: /portfolio/:path/

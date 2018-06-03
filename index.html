@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Architect Theme by Jason Long
+title: Ingenierong, un problema al dia
 ---
 
 <div id="home">
@@ -10,4 +10,14 @@ title: Architect Theme by Jason Long
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
+
+  <h1> People Involved</h1>
+  <ul class="portfolio">
+    {% for portfolio in site.portfolio %}
+  <h2>     
+   <li> <a href="{{ site.baseurl }}{{ portfolio.url }}">{{ portfolio.title }}</a></li>
+  </h2>
+  {% endfor %}
+  </ul>
+
 </div>

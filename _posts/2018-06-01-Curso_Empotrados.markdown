@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Sistemas empotrados I
+author: Juanma Gomez  < jmgomez@iaa.es >
+categories: Teoria Embebidos RaspberryPi
 ---
 
 ## Introducción
@@ -28,15 +30,15 @@ El incremento en la capacidad de integracion en la fabricacion de Circuitos Inte
 
 Este movimiento se ha llevado al extremo, ahora practicamente todo el sistema esta integrado dentro del mismo chip. Dentro del mismo chip se incluye el microprocesador, la memoria, los controladores de las interfaces, timers y pwms conformando un *system on chip* (SoC).
 
-Dependiendo de la tirada es posible que el costo de fabricar un SoC no sea abarcable y entonces se suele recurrir a System in Package (SPI). En la que varias chips comparten encapsulado.
+Dependiendo de la tirada es posible que el costo de fabricar un SoC no sea abarcable y entonces se suele recurrir a System in Package (SIP). En la que varias chips comparten encapsulado.
 
-![Image of ARM System-on-chip Block Diagram](https://ingenierong.github.io/images/500px-ARMSoCBlockDiagram.svg.png)
+![Image of ARM System-on-chip Block Diagram]({{ site.baseurl }}/images/500px-ARMSoCBlockDiagram.svg.png)
 
 La mayoría de SoC son desarrollados a partir de módulos de hardware básicos previamente probados para la construcción de diversos elementos más complejos junto con los controladores de software que proporcionan las instrucciones para su manejo. Estos elementos constitutivos suelen estar interconectados mediante el empleo de buses.
 
 ## Raspberry Pi
 
-![Raspberry Pi3 Board](https://ingenierong.github.io/images/board_rpi3.jpg)
+![Raspberry Pi3 Board]({{ site.baseurl }}/images/board_rpi3.jpg)
 
 
 Raspberry Pi es un pequeño computador del tamañano de una tarjeta de crédito, el cual podemos conectar fácilmente a una televisión vía HDMI. Además, podemos utilizarla, con un teclado y un ratón. Tiene conexión a Internet y unos pines GPIO (General Purpose Input/Output), para que podamos interactuar con nuestra placa con sensores, botones, o lo que queramos. 
