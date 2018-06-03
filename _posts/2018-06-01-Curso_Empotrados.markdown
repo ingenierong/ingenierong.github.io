@@ -30,7 +30,7 @@ Este movimiento se ha llevado al extremo, ahora practicamente todo el sistema es
 
 Dependiendo de la tirada es posible que el costo de fabricar un SoC no sea abarcable y entonces se suele recurrir a System in Package (SPI). En la que varias chips comparten encapsulado.
 
-![Image ARM System-on-chip Block Diagram](images/500px-ARMSoCBlockDiagram.svg.png)
+![Image ARM System-on-chip Block Diagram](https://ingenierong.github.io/images/500px-ARMSoCBlockDiagram.svg.png)
 
 La mayoría de SoC son desarrollados a partir de módulos de hardware básicos previamente probados para la construcción de diversos elementos más complejos junto con los controladores de software que proporcionan las instrucciones para su manejo. Estos elementos constitutivos suelen estar interconectados mediante el empleo de buses.
 
