@@ -50,9 +50,29 @@ Los sistemas Raspberry Pi 3 estan basados en el SOC BCM2837. Este SoC del fabric
 El ARM Cortex-A53 es un procesador de altas prestaciones y alta eficiciencia energetica. Permite dos modos de ejecucion, AArch32 y AArch64, con lo que puede ejecutar tanto aplicaciones de 32 como de 64 bits.
 [Ampliar Cortex-A53](https://developer.arm.com/products/processors/cortex-a/cortex-a53)
 
-El sistema Raspberry Pi 3, incluye una interfaz microSD desde la cual el sistema es capaz de arrancar. 
-### Arrancar nuestra Raspberry Pi 3
 
+### Instalar Raspbian
+El sistema Raspberry Pi 3, incluye una interfaz microSD desde la cual el sistema es capaz de arrancar el Sistema Operativo. Muchos de los sistema empotrados (de cierta potencia), disponibles en el mercado estan soportados por el SO **Linux**. 
+
+La fundación Raspberry nos proporciona una distribucion del SO Linux precompilada y lista para ser instalada en nuestra Raspberry. Nos proporcionan un fichero de imagen, que debemos descargar y grabar en una tarjeta microSD. Esta tarjeta micro SD una vez insertada en el zocalo para tarjetas micro SD, __J9__, permitira arrancar nuestro Raspbian.
+
+A continuacion vamos a poner en practica esto. Necesitaremos el siguiente material:
+* __Tarjeta micro SD__ de al menos 4 GB.
+* __Herramientas descompresion__ como PeaZIP, 7Zip.
+* __Herramientas grabacion micro SD__ como Image Write Tool, Rufus o el clasico dd.
+* __Lector de tarjetas micro SD__ y si es necesario el adaptador de micro SD a SD.
+
+En primer lugar vamos a descargar la imagen de Raspbian de la web de raspberry y descomprimirla:
+
+{% highlight bash %}
+`~]$ wget -O rasbian_lite_latest.zip`
+
+`~]$ unzip raspbian_lite_latest.zip`
+{% endhighlight %}  
+
+Insertamos nuestra tarjeta micro SD en el lector y mostramos los dispositivos de bloques del sistema para localizar nuestra micro SD.
+
+`~]$ lsblk`
 
 # Objetivos
 
