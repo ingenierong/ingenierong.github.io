@@ -65,14 +65,61 @@ A continuacion vamos a poner en practica esto. Necesitaremos el siguiente materi
 En primer lugar vamos a descargar la imagen de Raspbian de la web de raspberry y descomprimirla:
 
 {% highlight bash %}
-`~]$ wget -O rasbian_lite_latest.zip`
+~]$ wget -O rasbian_lite_latest.zip
+~]$ unzip raspbian_lite_latest.zip
+~]$ ls 
 
-`~]$ unzip raspbian_lite_latest.zip`
+raspbian_lite_latest.zip
+2018-04-18-raspbian-stretch-lite.img
+
 {% endhighlight %}  
 
 Insertamos nuestra tarjeta micro SD en el lector y mostramos los dispositivos de bloques del sistema para localizar nuestra micro SD.
 
-`~]$ lsblk`
+{% highlight bash %}
+~]$ lsblk
+mmcblk0                179:0    0  14,9G  0 disk 
+└─mmcblk0p1            179:1    0  14,9G  0 part 
+{% endhighlight %}
+
+Y finalmente copiamos la imagen a la tarjeta:
+
+{%highlight bash %}
+#Copiamos la imagen al dispositivo sdc. Precaución todos los datos se borraran.
+~]$ su 
+~]$ dd if=2018-04-18-raspbian-stretch.img | pv -tpreb | dd of=/dev/sdXX bs=128M
+~]$ sync
+{% endhighlight %}
+
+### Conexion con la Raspberry Pi
+A partir de 2016, las imágenes de Raspbian, el servicio ssh viene por defecto desactivado. Dadas las limitaciones de material disponible, para poder trabajar con nuestro sistema empotrado vamos a activar el servicio ssh.
+La documentación indica que debemos crear un fichero llamado ssh en la partición boot. Asi que repetimos el proceso anterior y montamos la partición /boot en nuestro sistema host.
+{%highlight bash %}
+~]$ su
+~]$ mkdir -p stretch/boot
+~]$ mount /dev/mmcblk0p1 stretch/boot
+{% endhighlight %}
+
+Vamos a crear el fichero y activar el servidor ssh.
+{%highlight bash %}
+~]$ touch stretch/boot/ssh
+~]$ umount stretch/boot
+{% endhighlight %}
+
+Debemos localizar nuestra rpi3
+`~]$ namp -sn 10.9.0.11/24`
+
+Y finalmente conectamos:
+{%highlight bash %}
+~]$ ssh pi@10.9.0.104
+ECDSA key fingerprint is SHA256:6p2Ot94wyN63G+/h2eBx0eoCqCCZxrPgbvIBNiHzX+I.
+ECDSA key fingerprint is MD5:3f:b1:39:05:25:5d:a6:7a:12:f3:fb:ac:6d:e4:15:fe.
+Are you sure you want to continue connecting (yes/no)? yes
+
+pi@10.9.0.104's password:  raspberry
+Linux raspberrypi 4.14.34-v7+ #1110 SMP Mon Apr 16 15:18:51 BST 2018 armv7l
+
+{% endhighlight %}
 
 # Objetivos
 
