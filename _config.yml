@@ -1,9 +1,9 @@
 # Setup
 name:         Ingenierong
 tagline:      Embedded System and Firmware development
-#baseurl:      "https://ingenierong.github.io"
+baseurl:      "http://protocop.es"
 locale:       "es"
-#url:	      "https://ingenierong.github.io/"
+url:	      "https://ingenierong.github.io/"
 
 # Gems
 gems:

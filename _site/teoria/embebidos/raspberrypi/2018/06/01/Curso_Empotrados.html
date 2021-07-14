@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://www.iaa.csic.es/~jmgomez//stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="https://www.iaa.csic.es/~jmgomez//stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="https://www.iaa.csic.es/~jmgomez//stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> Sistemas empotrados I  </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1> Ingenierong </h1>
+        <h2>Guia Rapida de Introduccion a los Sistema Empotrados</h2>
+        <a href="https://github.com/ingenierong/CursoEmpotrados_v1" class="button"><small>View project on</small> GitHub</a>
+
+    <nav class="site-nav" style="float: right;" >
+
+      <p>
+        <!--  instead of blog -->
+        <a style="color: black;" href="https://www.iaa.csic.es/~jmgomez//">blog</a>
+        
+          
+          <a style="color: black;"  href="https://www.iaa.csic.es/~jmgomez//">Ingenierong, un problema al dia</a>
+          
+        
+      </p>
+    </nav>
+
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          <h2>Sistemas empotrados I</h2>
+<p class="meta">01 Jun 2018
+
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Juanma Gomez  < jmgomez@iaa.es ></span></span>
+      
+</p>
+
+<h2 id="introducción">Introducción</h2>
+<p>Un <strong>sistema embebido</strong> es una combinación de hardware y software diseñado para un tipo de <em>aplicación especifica</em>, cuyo software por lo general enfrenta a una tarea de <em>tiempo real</em>. Al tratarse de sistemas de proposito especifico, en la mayoria de las ocasiones, todos los componentes se encuentran incluidos en la placa base y no suelen permitir ampliaciones de hardware.</p>
+
+<p><img src="images/Embedded-System-and-Its-Real-Time-Applications-Image-3.jpg" alt="Image Ejemplos de sistemas empotrados, lavadoras, microondas, controles de acceso, televisiones" /></p>
+
+<p>Por lo general, un sistema embebido incluye un pequeño procesador con una memoria acorde al mismo. La comunicacion es un aspecto fundamental de los mismos, suelen incluir puertos de comunicaciones que soportan los protocolos mas comunes, 1Wire, I2C, SPI, CAN, UART. Al igual, que las comunicaciones se suelen incluir modulos de control, generalmente PWM y Timers para manejar actuadores (motores, reles, leds, etc).</p>
+
+<p>Puesto que se suelen fabricar miles o cientos de miles el costo es un factor de gran importarcia.</p>
+
+<p>Hasta no hace mucho, no era habitual, que los fabricantes dieran un gran soporte. El empleo de arquitecturas exoticas, alejaba a estos sistemas de los metodos estandars de desarrollo. De echo, no es extraño que el software de los sistemas empotrados sea programado en Ensamblador. Sin embargo, en la actualidad los fabricantes de procesadores tratan de aproximarse lo maximo posible al estandard, creando forks de GGC o LLVM y para proporcionar una toolchain decente.</p>
+
+<p>En resumen, podemos decir que entre las principales caracteristicas de los sistema empotrados podemos destacar:</p>
+<ul>
+  <li>Diseñados a medida.</li>
+  <li>Costes muy ajustados.</li>
+  <li>Recursos limitados.</li>
+  <li>Cantidad de memoria.</li>
+  <li>Potencia de cálculo.</li>
+  <li>Perifericos disponibles.</li>
+  <li>Puertos de E/S.</li>
+</ul>
+
+<h2 id="tendencias-en-los-sistemas-empotrados">Tendencias en los sistemas empotrados</h2>
+<p>El incremento en la capacidad de integracion en la fabricacion de Circuitos Integrados, origino un movimiento de los fabricantes hacia la inclusion de mas componentes dentro del mismo circuitos integrado. De esta forma se consegue reducir costes y construir sistemas mas reducidos.</p>
+
+<p>Este movimiento se ha llevado al extremo, ahora practicamente todo el sistema esta integrado dentro del mismo chip. Dentro del mismo chip se incluye el microprocesador, la memoria, los controladores de las interfaces, timers y pwms conformando un <em>system on chip</em> (SoC).</p>
+
+<p>Dependiendo de la tirada es posible que el costo de fabricar un SoC no sea abarcable y entonces se suele recurrir a System in Package (SIP). En la que varias chips comparten encapsulado.</p>
+
+<p><img src="https://www.iaa.csic.es/~jmgomez//images/500px-ARMSoCBlockDiagram.svg.png" alt="Image of ARM System-on-chip Block Diagram" /></p>
+
+<p>La mayoría de SoC son desarrollados a partir de módulos de hardware básicos previamente probados para la construcción de diversos elementos más complejos junto con los controladores de software que proporcionan las instrucciones para su manejo. Estos elementos constitutivos suelen estar interconectados mediante el empleo de buses.</p>
+
+<h2 id="raspberry-pi">Raspberry Pi</h2>
+
+<p><img src="https://www.iaa.csic.es/~jmgomez//images/board_rpi3.jpg" alt="Raspberry Pi3 Board" /></p>
+
+<p>Raspberry Pi es un pequeño computador del tamañano de una tarjeta de crédito, el cual podemos conectar fácilmente a una televisión vía HDMI. Además, podemos utilizarla, con un teclado y un ratón. Tiene conexión a Internet y unos pines GPIO (General Purpose Input/Output), para que podamos interactuar con nuestra placa con sensores, botones, o lo que queramos.</p>
+
+<p><img src="rpi3_blk_diagram.jpg" alt="Raspberry pi 3 BlockDiagram Curso pag 22" /></p>
+
+<p>Los sistemas Raspberry Pi 3 estan basados en el SOC BCM2837. Este SoC del fabricante Broadcom incluye una CPU con juego de instrucciones de 64bit de la familia ARMv8. Se trata de un procesador es Quad Core, o sea, de cuatro núcleos y de tipo Cortex-A53 con una velocidad de 1.2GHz, dispone de 32kB de memoria caché de nivel 1 y 512kB de caché de nivel 2. Por otro lado, el SoC incluye una GPU con dual core VideoCore IV a 400MHz y que soporta OpenGL ES 2.0.</p>
+
+<p>El ARM Cortex-A53 es un procesador de altas prestaciones y alta eficiciencia energetica. Permite dos modos de ejecucion, AArch32 y AArch64, con lo que puede ejecutar tanto aplicaciones de 32 como de 64 bits.
+<a href="https://developer.arm.com/products/processors/cortex-a/cortex-a53">Ampliar Cortex-A53</a></p>
+
+<h3 id="instalar-raspbian">Instalar Raspbian</h3>
+<p>El sistema Raspberry Pi 3, incluye una interfaz microSD desde la cual el sistema es capaz de arrancar el Sistema Operativo. Muchos de los sistema empotrados (de cierta potencia), disponibles en el mercado estan soportados por el SO <strong>Linux</strong>.</p>
+
+<p>La fundación Raspberry nos proporciona una distribucion del SO Linux precompilada y lista para ser instalada en nuestra Raspberry. Nos proporcionan un fichero de imagen, que debemos descargar y grabar en una tarjeta microSD. Esta tarjeta micro SD una vez insertada en el zocalo para tarjetas micro SD, <strong>J9</strong>, permitira arrancar nuestro Raspbian.</p>
+
+<p>A continuacion vamos a poner en practica esto. Necesitaremos el siguiente material:</p>
+<ul>
+  <li><strong>Tarjeta micro SD</strong> de al menos 4 GB.</li>
+  <li><strong>Herramientas descompresion</strong> como PeaZIP, 7Zip.</li>
+  <li><strong>Herramientas grabacion micro SD</strong> como Image Write Tool, Rufus o el clasico dd.</li>
+  <li><strong>Lector de tarjetas micro SD</strong> y si es necesario el adaptador de micro SD a SD.</li>
+</ul>
+
+<p>En primer lugar vamos a descargar la imagen de Raspbian de la web de raspberry y descomprimirla:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~]<span class="nv">$ </span>wget <span class="nt">-O</span> rasbian_lite_latest.zip
+~]<span class="nv">$ </span>unzip raspbian_lite_latest.zip
+~]<span class="nv">$ </span><span class="nb">ls 
+
+</span>raspbian_lite_latest.zip
+2018-04-18-raspbian-stretch-lite.img</code></pre></figure>
+
+<p>Insertamos nuestra tarjeta micro SD en el lector y mostramos los dispositivos de bloques del sistema para localizar nuestra micro SD.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~]<span class="nv">$ </span>lsblk
+mmcblk0                179:0    0  14,9G  0 disk 
+└─mmcblk0p1            179:1    0  14,9G  0 part </code></pre></figure>
+
+<p>Y finalmente copiamos la imagen a la tarjeta:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#Copiamos la imagen al dispositivo sdc. Precaución todos los datos se borraran.</span>
+~]<span class="nv">$ </span>su 
+~]<span class="nv">$ </span>dd <span class="k">if</span><span class="o">=</span>2018-04-18-raspbian-stretch.img | pv <span class="nt">-tpreb</span> | dd <span class="nv">of</span><span class="o">=</span>/dev/sdXX <span class="nv">bs</span><span class="o">=</span>128M
+~]<span class="nv">$ </span>sync</code></pre></figure>
+
+<h3 id="conexion-con-la-raspberry-pi">Conexion con la Raspberry Pi</h3>
+<p>A partir de 2016, las imágenes de Raspbian, el servicio ssh viene por defecto desactivado. Dadas las limitaciones de material disponible, para poder trabajar con nuestro sistema empotrado vamos a activar el servicio ssh.
+La documentación indica que debemos crear un fichero llamado ssh en la partición boot. Asi que repetimos el proceso anterior y montamos la partición /boot en nuestro sistema host.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~]<span class="nv">$ </span>su
+~]<span class="nv">$ </span>mkdir <span class="nt">-p</span> stretch/boot
+~]<span class="nv">$ </span>mount /dev/mmcblk0p1 stretch/boot</code></pre></figure>
+
+<p>Vamos a crear el fichero y activar el servidor ssh.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~]<span class="nv">$ </span>touch stretch/boot/ssh
+~]<span class="nv">$ </span>umount stretch/boot</code></pre></figure>
+
+<p>Debemos localizar nuestra rpi3
+<code class="highlighter-rouge">~]$ namp -sn 10.9.0.11/24</code></p>
+
+<p>Y finalmente conectamos:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~]<span class="nv">$ </span>ssh pi@10.9.0.104
+ECDSA key fingerprint is SHA256:6p2Ot94wyN63G+/h2eBx0eoCqCCZxrPgbvIBNiHzX+I.
+ECDSA key fingerprint is MD5:3f:b1:39:05:25:5d:a6:7a:12:f3:fb:ac:6d:e4:15:fe.
+Are you sure you want to <span class="k">continue </span>connecting <span class="o">(</span>yes/no<span class="o">)</span>? yes
+
+pi@10.9.0.104<span class="s1">'s password:  raspberry
+Linux raspberrypi 4.14.34-v7+ #1110 SMP Mon Apr 16 15:18:51 BST 2018 armv7l</span></code></pre></figure>
+
+<h1 id="objetivos">Objetivos</h1>
+
+<ul>
+  <li>Manejar  herramientas de desarrollo para construir sistemas embebidos.</li>
+  <li>Configurar un sistema embebido basado en micropocesador.</li>
+</ul>
+
+<blockquote>
+  <p>“The most important factor for me is that the device must be supported in upstream Linux (preferably stable, but mainline will do) and U-Boot”
+Juan M. Gómez</p>
+</blockquote>
+
+<blockquote>
+  <p>“Dive into the hardware from a linux and you will have the key to to rule them all”
+Juan P. Cobos</p>
+</blockquote>
+
+<p>Next : Instalación del sistema operativo.</p>
+
+
+
+<p class="meta"> Categorias:
+      <!-- Categorías -->
+      
+      
+        <span itemprop="articleSection">Teoria</span>, <span itemprop="articleSection">Embebidos</span>, <span itemprop="articleSection">RaspberryPi</span>
+      
+      <!-- End categorías -->
+
+<!-- Que tal incluir una parte que sea next o previus, para los articulos en serie -->
+</p>
+
+
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://ingenierong.github.io/" class="button">
+            <small>GO</small>
+            Home page
+          </a>
+          <a href="https://ingenierong.github.io/portfolio" class="button">
+            <small>GO</small>
+            People page
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
+
+          <p class="repo-owner"><a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>
